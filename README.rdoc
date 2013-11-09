@@ -1,0 +1,29 @@
+= marco-polo
+
+MarcoPolo shows your app name and environment in your console prompt so you don't accidentally break production
+
+== Installation
+
+  In your Gemfile: gem "marco-polo", "~> 0.1.0"
+  $ bundle install
+  
+== Usage
+
+There's nothing to do! Just install the gem and bask in your newfound console security.
+
+Before marco-polo:
+
+  ~/Sites/myapp$ rails c
+  >
+
+  ~/Sites/myapp$ heroku run console -a myapp
+  >
+
+After marco-polo: 
+
+  ~/Sites/myapp$ rails c
+  myapp(dev)>
+  
+  ~/Sites/myapp$ heroku run console -a myapp
+  myapp(prod)>
+
