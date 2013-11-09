@@ -1,0 +1,3 @@
+module MarcoPolo
+  VERSION = "0.1.0"
+end
