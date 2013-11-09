@@ -5,7 +5,7 @@ elsif Rails and Rails.env
 end
 
 if rails_env
-  current_app = Dir.pwd.split('/').last
+  current_app = Rails.application.class.parent_name.underscore
 
   # shorten some common long environment names
   rails_env = "dev" if rails_env == "development"
