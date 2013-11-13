@@ -44,4 +44,18 @@ If it doesn't work for you please file a bug instead. Thanks everyone!
 The central mechanism of marco-polo is adding a `require` flag to the rails command that's starting IRB,
 using it to require a file that changes the prompt. It will also let you load your own irbrc, to set up
 any console tools you like! And since this file is required after your app is required, you can use all
-your app objects inside it. For example, one of my project
+your app objects inside it.
+
+For example, one of my projects uses the `sentient_user` gem to help assign
+actors to all our `papertrail` events. Papertrail works great in my app code, but I always forget
+to set User.current when I'm in the console. Solution? Prompt myself to "log in" when my console
+loads.
+
+  print "Who are you? "
+  email = gets.chomp.downcase
+  user = User.find_by_email(email)
+  user.make_current
+  PaperTrail.whodunnit = user
+
+This code lives in a file called `.irbrc.rb` in my project root and is automatically loaded into my console
+by marco-polo.
