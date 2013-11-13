@@ -38,3 +38,10 @@ So far this has been verified on:
 If you're using it with different versions please let me know so we can
 fill out this table. Tweet me @archslide or submit a PR to update this README.
 If it doesn't work for you please file a bug instead. Thanks everyone!
+
+== Secret Feature: custom .irbrc
+
+The central mechanism of marco-polo is adding a `require` flag to the rails command that's starting IRB,
+using it to require a file that changes the prompt. It will also let you load your own irbrc, to set up
+any console tools you like! And since this file is required after your app is required, you can use all
+your app objects inside it. For example, one of my project
