@@ -34,6 +34,9 @@ So far this has been verified on:
     Ruby Version | Rails Version
     -------------|---------------
     1.9.3        | 3.2           
+                 | 4.0
+    2.0.0        | 3.2
+                 | 4.0
 
 If you're using it with different versions please let me know so we can
 fill out this table. Tweet me @archslide or submit a PR to update this README.
