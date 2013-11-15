@@ -4,7 +4,7 @@ MarcoPolo shows your app name and environment in your console prompt so you don'
 
 ## Installation
 
-    In your Gemfile: gem "marco-polo", "~> 0.1.0"
+    In your Gemfile: gem "marco-polo", "~> 1.0"
     $ bundle install
   
 ## Usage
