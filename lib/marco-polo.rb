@@ -16,3 +16,19 @@ module MarcoPolo
   end
 end
 
+if defined? Pry
+  Pry.config.prompt = [
+    proc {
+      current_app = Rails.application.class.parent_name.underscore.gsub("_", "-")
+      rails_env = Rails.env.downcase
+
+      # shorten some common long environment names
+      rails_env = "dev" if rails_env == "development"
+      rails_env = "prod" if rails_env == "production"
+
+      "#{current_app}(#{rails_env})> "
+    },
+    proc { "> "}
+  ]
+end
+
