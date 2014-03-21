@@ -31,6 +31,16 @@ After marco-polo:
     ~/Sites/myapp$ heroku run console -a myapp
     myapp(prod)>
 
+## Customize app name by ENV
+
+You can customize app name by `MARCO_POLO_APP_NAME` environment variable. In order to customize app name, define this environment variable then run your application.
+
+    $ MARCO_POLO_APP_NAME=app_name rails c
+
+If your application is running on Heroku, set this environment variable by `heroku config:set` command.
+
+    $ heroku config:set MARCO_POLO_APP_NAME=app_name
+
 ## Secret Feature (IRB only): custom .irbrc
 
 The central mechanism of marco-polo is adding a `require` flag to the rails command that's starting IRB,
