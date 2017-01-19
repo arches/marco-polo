@@ -9,7 +9,7 @@ if rails_env
 
   # shorten some common long environment names and set color
   red = "\033[0;31m"
-  green = "033[0;32m"
+  green = "\033[0;32m"
   reset = "\033[0m"
 
   if rails_env == "development"
