@@ -8,9 +8,9 @@ if rails_env
   current_app = ENV["MARCO_POLO_APP_NAME"] || Rails.application.class.parent_name.underscore.gsub("_", "-")
 
   # shorten some common long environment names and set color
-  red = '\0e[0;31m'
-  green = '\e[0;32m'
-  reset = '\033[0m'
+  red = "\033[0;31m"
+  green = "033[0;32m"
+  reset = "\033[0m"
 
   if rails_env == "development"
     rails_env = "dev"
