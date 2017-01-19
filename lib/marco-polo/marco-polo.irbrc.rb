@@ -22,8 +22,8 @@ if rails_env
   end
   
   IRB.conf[:PROMPT][:RAILS_ENV] = {
-      :PROMPT_I => "#{current_app}#{color}(#{rails_env})#{reset}> ",
-      :PROMPT_N => "#{current_app}#{color}(#{rails_env})#{reset}> ",
+      :PROMPT_I => "#{current_app}#{color}[#{rails_env}]#{reset}> ",
+      :PROMPT_N => "#{current_app}#{color}[#{rails_env}]#{reset}> ",
       :PROMPT_S => nil,
       :PROMPT_C => "?> ",
       :RETURN => "=> %s\n"
