@@ -5,7 +5,7 @@ elsif Rails and Rails.env
 end
 
 if rails_env
-  current_app = ENV["MARCO_POLO_APP_NAME"] || Rails.application.class.parent_name.underscore.gsub("_", "-")
+  current_app = ENV["MARCO_POLO_APP_NAME"] || Rails.application.class.module_parent_name.underscore.gsub("_", "-")
 
   # shorten some common long environment names
   rails_env = "dev" if rails_env == "development"
