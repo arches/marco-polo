@@ -1,4 +1,3 @@
-# -*- encoding: utf-8 -*-
 require File.expand_path('../lib/marco-polo/version', __FILE__)
 
 Gem::Specification.new do |gem|
@@ -6,7 +5,6 @@ Gem::Specification.new do |gem|
 
   gem.authors             = ["Chris Doyle"]
   gem.email               = ["archslide@gmail.com"]
-  gem.email               = "archslide@gmail.com"
 
   gem.description         = "MarcoPolo shows your app name and environment in your console prompt so you don't accidentally break production"
   gem.summary             = "MarcoPolo shows your app name and environment in your console prompt"
@@ -15,5 +13,5 @@ Gem::Specification.new do |gem|
   gem.license             = 'MIT'
 
   gem.files               = `git ls-files`.split($\)
-  gem.require_paths       = ["lib"]
+  gem.add_runtime_dependency "railties", ">= 6"
 end
