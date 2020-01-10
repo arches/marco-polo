@@ -14,7 +14,7 @@ end
 if defined? Pry
   Pry.config.prompt = [
     proc {
-      current_app = ENV["MARCO_POLO_APP_NAME"] || Rails.application.class.parent_name.underscore.gsub("_", "-")
+      current_app = ENV["MARCO_POLO_APP_NAME"] || Rails.application.class.module_parent_name.underscore.gsub("_", "-")
       rails_env = Rails.env.downcase
 
       # shorten some common long environment names
