@@ -7,15 +7,26 @@ end
 if rails_env
   current_app = ENV["MARCO_POLO_APP_NAME"] || Rails.application.class.module_parent_name.underscore.gsub("_", "-")
 
-  # shorten some common long environment names
-  rails_env = "dev" if rails_env == "development"
-  rails_env = "prod" if rails_env == "production"
+  # Define colors
+  red = "\e[0;31m"
+  green = "\e[0;32m"
+  reset = "\e[0m"
+
+  # shorten some common long environment names and set color
+  if rails_env == "development"
+    rails_env = "dev"
+    color = green
+  end
+  if rails_env == "production"
+    rails_env = "prod"
+    color = red
+  end
 
   IRB.conf[:PROMPT][:RAILS_ENV] = {
-      :PROMPT_I => "#{current_app}(#{rails_env})> ",
-      :PROMPT_N => "#{current_app}(#{rails_env})> ",
+      :PROMPT_I => "#{current_app}#{color}(#{rails_env})#{reset}> ",
+      :PROMPT_N => "#{current_app}#{color}(#{rails_env})#{reset}> ",
       :PROMPT_S => nil,
-      :PROMPT_C => "?> ",
+      :PROMPT_C => ">> ",
       :RETURN => "=> %s\n"
   }
 
