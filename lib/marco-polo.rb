@@ -12,18 +12,32 @@ module MarcoPolo
 end
 
 if defined? Pry
-  Pry.config.prompt = [
-    proc {
-      current_app = ENV["MARCO_POLO_APP_NAME"] || Rails.application.class.module_parent_name.underscore.gsub("_", "-")
-      rails_env = Rails.env.downcase
+  Pry.config.prompt = Pry::Prompt.new(
+    "marco polo",
+    "marco polo prompt",
+    [
+      proc {
+        current_app = ENV["MARCO_POLO_APP_NAME"] || Rails.application.class.module_parent_name.underscore.gsub("_", "-")
+        rails_env = Rails.env.downcase
 
-      # shorten some common long environment names
-      rails_env = "dev" if rails_env == "development"
-      rails_env = "prod" if rails_env == "production"
+        # Define colors
+        red = "\e[0;31m"
+        green = "\e[0;32m"
+        reset = "\e[0m"
 
-      "#{current_app}(#{rails_env})> "
-    },
-    proc { "> "}
-  ]
+        # shorten some common long environment names
+        if rails_env == "development"
+          rails_env = "dev"
+          color = green
+        end
+        if rails_env == "production"
+          rails_env = "prod"
+          color = red
+        end
+
+        "#{current_app}#{color}(#{rails_env})#{reset}> "
+      },
+      proc { "> "}
+    ]
+  )
 end
-
