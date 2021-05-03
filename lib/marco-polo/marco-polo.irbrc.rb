@@ -12,13 +12,12 @@ if rails_env
   rails_env = "prod" if rails_env == "production"
 
   IRB.conf[:PROMPT][:RAILS_ENV] = {
-      :PROMPT_I => "#{current_app}(#{rails_env})> ",
-      :PROMPT_N => "#{current_app}(#{rails_env})> ",
-      :PROMPT_S => nil,
-      :PROMPT_C => "?> ",
-      :RETURN => "=> %s\n"
+    :PROMPT_I => "#{current_app}(#{rails_env})> ",
+    :PROMPT_N => "#{current_app}(#{rails_env})> ",
+    :PROMPT_S => nil,
+    :PROMPT_C => "#{current_app}(#{rails_env})> ",
+    :RETURN => "=> %s\n"
   }
 
   IRB.conf[:PROMPT_MODE] = :RAILS_ENV
-
 end
