@@ -12,18 +12,25 @@ module MarcoPolo
 end
 
 if defined? Pry
-  Pry.config.prompt = [
-    proc {
-      current_app = ENV["MARCO_POLO_APP_NAME"] || Rails.application.class.module_parent_name.underscore.gsub("_", "-")
-      rails_env = Rails.env.downcase
+  wait_proc = proc {
+    current_app = ENV["MARCO_POLO_APP_NAME"] || Rails.application.class.module_parent_name.underscore.gsub("_", "-")
+    rails_env = Rails.env.downcase
 
-      # shorten some common long environment names
-      rails_env = "dev" if rails_env == "development"
-      rails_env = "prod" if rails_env == "production"
+    # shorten some common long environment names
+    rails_env = "dev" if rails_env == "development"
+    rails_env = "prod" if rails_env == "production"
 
-      "#{current_app}(#{rails_env})> "
-    },
-    proc { "> "}
-  ]
+    "#{current_app}(#{rails_env})> "
+  }
+  incomplete_proc = proc { "> "}
+
+  if defined? Pry::Prompt
+    Pry.config.prompt = Pry::Prompt.new(
+      'marco-polo',
+      'A prompt which shows your app name and environment',
+      [wait_proc, incomplete_proc]
+    )
+  else
+    Pry.config.prompt = [wait_proc, incomplete_proc]
+  end
 end
-
