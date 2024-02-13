@@ -4,7 +4,7 @@ Gem::Specification.new do |gem|
   gem.name                = "marco-polo"
 
   gem.authors             = ["Chris Doyle"]
-  gem.email               = ["archslide@gmail.com"]
+  gem.email               = ["chris@arches.io"]
 
   gem.description         = "MarcoPolo shows your app name and environment in your console prompt so you don't accidentally break production"
   gem.summary             = "MarcoPolo shows your app name and environment in your console prompt"
